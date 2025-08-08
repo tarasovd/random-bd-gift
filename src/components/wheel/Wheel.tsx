@@ -49,7 +49,7 @@ const WheelComponent = ({
   }
   const canvasId = useRef(`canvas-${randomString()}`)
   const wheelId = useRef(`wheel-${randomString()}`)
-  const dimension = window.screen.width;
+  const dimension = window.innerWidth - (window.innerWidth / 3) + 50
   let currentSegment = ''
   let isStarted = false
   const [isFinished, setFinished] = useState(false)

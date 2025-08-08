@@ -13,28 +13,28 @@ const App = () => {
     'Ящик кетамина',
     '4-ый гольф',
     'Исходный код',
-    'Все слушают/только техно',
+    'Въебать марку',
     'С Урбаном/на Мальту',
     'Бакс',
-    'Сундук кетамина',
+    'Выпрямиться',
     'Такси/до Сигулды',
     '5л спрея/для носа',
     'Лиза',
     'Носки'
   ]
   const segments2 = [
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
-    'Прыжок с парашютом',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
+    'Алкотестер',
   ]
   const segColors = [
     '#EE4040',
@@ -68,9 +68,13 @@ const App = () => {
     window.playFanfary();
     let tmout = 10000;
     if (localStorage.getItem('attempts') <= 0) {
-      winner = 'Прыжок с парашютом';
+      winner = 'Алкотестер';
       tmout = 60000;
       setCsegments(segments2);
+    } else if (localStorage.getItem('attempts') <= 1) {
+        winner = 'Въебать марку';
+    } else if (localStorage.getItem('attempts') <= 2) {
+        winner = 'Выпрямиться';
     }
     setWinDisplayed(winner);
     setTimeout(() => {
@@ -80,7 +84,7 @@ const App = () => {
   }
   return (
     <React.Fragment>
-      <h1>Happy Birthday Bark! Испытай удачу в этом абсолютно честном колесе фортуны</h1>
+      <h1>Happy Birthday Bark! Испытай удачу в этом абсолютно честном колесе фортуны 2k25</h1>
       <div className='wrapper'>
         <h2 className={ attempts <= 0 ? 'red' : ''}>{ attempts > 0 ? `Попыток осталось: ${ attempts }` : 'Чтобы пополнить попытки внесите 457€' }</h2>
         <Wheel
@@ -90,7 +94,7 @@ const App = () => {
           primaryColor='black'
           contrastColor='white'
           buttonText='Вращайте/барабан'
-          size={196}
+          size={window.innerWidth / 3}
           upDuration={200}
           downDuration={1801}
           winningSegment={segments[11]}
@@ -98,17 +102,16 @@ const App = () => {
           setAttempts={setAttempts}
         />
       </div>
-      { winDisplayed === 'Прыжок с парашютом' ? (
+      { winDisplayed === 'Алкотестер' ? (
         <div className='wingif'>
           <p>
             <h3>Ура! Ты выиграл: { winDisplayed }</h3>
             <h3>Я в ахуе вообще</h3>
-            <a href="https://drive.google.com/file/d/1ifbPksZjQYn6gGBPt7RtPh8HoOb_Ufw3/view?usp=sharing" target='_blank'><h3>Жми сюда: https://drive.google.com/file/d/1ifbPksZjQYn6gGBPt7RtPh8HoOb_Ufw3/view?usp=sharing</h3></a>
           </p>
           <img src={Win} alt='win' />
         </div>
       ) : null }
-      { (winDisplayed && winDisplayed !== 'Прыжок с парашютом') ? (
+      { (winDisplayed && winDisplayed !== 'Алкотестер') ? (
         <div className='wingif'>
           <p>
             <h3>Ура! Ты выиграл: { winDisplayed }</h3>
