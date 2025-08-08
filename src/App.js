@@ -94,7 +94,7 @@ const App = () => {
           primaryColor='black'
           contrastColor='white'
           buttonText='Вращайте/барабан'
-          size={window.innerWidth / 3}
+          size={Math.min(window.innerWidth / 3, 400)}
           upDuration={200}
           downDuration={1801}
           winningSegment={segments[11]}

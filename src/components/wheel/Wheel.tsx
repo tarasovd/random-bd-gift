@@ -32,7 +32,7 @@ const WheelComponent = ({
   upDuration = 100,
   downDuration = 1000,
   fontFamily = 'Arial',
-  fontSize = '1em',
+  fontSize = window.innerWidth <= 1080 ? '3vw' : '32px',
   outlineWidth = 7,
   playBaraban = () => {},
   setAttempts = () => {}
@@ -49,7 +49,7 @@ const WheelComponent = ({
   }
   const canvasId = useRef(`canvas-${randomString()}`)
   const wheelId = useRef(`wheel-${randomString()}`)
-  const dimension = window.innerWidth - (window.innerWidth / 3) + 50
+  const dimension = Math.min((window.innerWidth - (window.innerWidth / 3)), 800) + 50
   let currentSegment = ''
   let isStarted = false
   const [isFinished, setFinished] = useState(false)
